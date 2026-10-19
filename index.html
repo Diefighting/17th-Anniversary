@@ -12,7 +12,7 @@
         .header h1 {font-size:22px; margin-bottom:4px;}
         .header p {font-size:14px; opacity:0.9;}
         
-        /* 시나리오 탭 */
+        /* 17주년 기념 선택 탭 */
         .tab-wrap {display:flex; background:#e8e4dc;}
         .tab {flex:1; padding:14px; text-align:center; cursor:pointer; font-weight:600; transition:all 0.25s; border-bottom:3px solid transparent;}
         .tab.active {background:#fff; border-bottom:3px solid #8b5a2b; color:#8b5a2b;}
@@ -63,7 +63,6 @@
         <h1>사성수 코인 계획표</h1>
         <p>기간: 10/13 ~ 12/8</p>
     </div>
-    <!-- 시나리오 탭 -->
     <div class="tab-wrap">
         <div class="tab active" data-tab="sc1">
             <div class="tab-box box1">
@@ -78,10 +77,10 @@
             </div>
         </div>
     </div>
-    <!-- =============== 시나리오 1 =============== -->
+
+    <!-- =============== 17주년 기념 선택 1 =============== -->
     <div class="tab-content active" id="sc1">
         <h2>주차별 구매 내역</h2>
-        <!-- ✅ 주차 선택 탭 -->
         <div class="week-tab-wrap">
             <div class="week-tab active" data-week="sc1-w1">1주차</div>
             <div class="week-tab" data-week="sc1-w2">2주차</div>
@@ -94,7 +93,8 @@
             <div class="week-tab" data-week="sc1-wlast">마지막날</div>
             <div class="week-tab" data-view="all">전체보기</div>
         </div>
-        <!-- ✅ 주차별 내용 -->
+
+        <!-- 1주차 -->
         <div class="week-content active" id="sc1-w1">
             <h3>1주차 (10/13 ~ 10/19)</h3>
             <table>
@@ -103,76 +103,88 @@
                     <tr><td>현무</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">11</td></tr>
                     <tr><td>주작</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">10</td></tr>
                     <tr><td>청룡</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>아레나(5) / 통행증(5) / 데미지스킨(10) / 백업칩(15)</td><td>35</td><td class="num">5</td></tr>
-                    <tr><td>백호</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
+                    <tr><td>백호</td><td>0</td><td>55</td><td>-20</td><td>35</td><td>궁강디(20) / 명찰 강화 백업칩(5) /  메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">0</td></tr>
                     <tr><td>17주년코인</td><td>—</td><td>—</td><td>20</td><td>20</td><td>—</td><td>—</td><td>20</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 2주차 / 수급: 주작55 / 청룡55 / 백호60 -->
         <div class="week-content" id="sc1-w2">
             <h3>2주차 (10/20 ~ 10/26)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
                     <tr><td>현무</td><td>11</td><td>60</td><td>-15</td><td>56</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10) / 5단교환권(15)</td><td>54</td><td class="num">2</td></tr>
-                    <tr><td>주작</td><td>10</td><td>60</td><td>-15</td><td>55</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">5</td></tr>
-                    <tr><td>청룡</td><td>5</td><td>60</td><td>-15</td><td>50</td><td>아레나(5) / 통행증(5) / 업적(25) / 강화 테이머 스킬(15)</td><td>50</td><td class="num">0</td></tr>
-                    <tr><td>백호</td><td>5</td><td>60</td><td>-15</td><td>50</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">5</td></tr>
+                    <tr><td>주작</td><td>10</td><td>55</td><td>-15</td><td>50</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치 변경 스톤(10)</td><td>50</td><td class="num">0</td></tr>
+                    <tr><td>청룡</td><td>5</td><td>55</td><td>-15</td><td>45</td><td>아레나(5) / 통행증(5) / 강화 테이머 스킬(15)</td><td>25</td><td class="num">20</td></tr>
+                    <tr><td>백호</td><td>0</td><td>60</td><td>-15</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">0</td></tr>
                     <tr><td>17주년코인</td><td>20</td><td>—</td><td>15</td><td>35</td><td>—</td><td>0</td><td>35</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 3주차 / 수급: 주작60 / 청룡60 / 백호55 -->
         <div class="week-content" id="sc1-w3">
             <h3>3주차 (10/27 ~ 11/2)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>2</td><td>60</td><td>0</td><td>62</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10) / 5단교환권(15)</td><td>54</td><td class="num">8</td></tr>
-                    <tr><td>주작</td><td>5</td><td>60</td><td>0</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">15</td></tr>
-                    <tr><td>청룡</td><td>0</td><td>60</td><td>0</td><td>60</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15) / 궁극 테이머 스킬(20)</td><td>60</td><td class="num">0</td></tr>
-                    <tr><td>백호</td><td>5</td><td>60</td><td>0</td><td>65</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[3개](30)</td><td>55</td><td class="num">10</td></tr>
+                    <tr><td>현무</td><td>2</td><td>55</td><td>0</td><td>57</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10) / 5단교환권(15)</td><td>54</td><td class="num">3</td></tr>
+                    <tr><td>주작</td><td>0</td><td>60</td><td>0</td><td>60</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치 변경 스톤(10)</td><td>50</td><td class="num">10</td></tr>
+                    <tr><td>청룡</td><td>20</td><td>60</td><td>0</td><td>80</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 궁극 테이머 스킬(20) / 업적(25)</td><td>70</td><td class="num">10</td></tr>
+                    <tr><td>백호</td><td>0</td><td>55</td><td>0</td><td>55</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[3개](30)</td><td>55</td><td class="num">0</td></tr>
                     <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 4주차 / 수급: 주작55 / 청룡55 / 백호60 -->
         <div class="week-content" id="sc1-w4">
             <h3>4주차 (11/3 ~ 11/9)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>8</td><td>60</td><td>0</td><td>68</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10)</td><td>39</td><td class="num">29</td></tr>
-                    <tr><td>주작</td><td>15</td><td>60</td><td>0</td><td>75</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">25</td></tr>
-                    <tr><td>청룡</td><td>0</td><td>60</td><td>0</td><td>60</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15) / 궁극 테이머 스킬(20)</td><td>60</td><td class="num">0</td></tr>
-                    <tr><td>백호</td><td>10</td><td>60</td><td>0</td><td>70</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[4개](40)</td><td>65</td><td class="num">5</td></tr>
+                    <tr><td>현무</td><td>3</td><td>60</td><td>0</td><td>63</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10)</td><td>39</td><td class="num">24</td></tr>
+                    <tr><td>주작</td><td>10</td><td>55</td><td>0</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치 변경 스톤(10)</td><td>50</td><td class="num">15</td></tr>
+                    <tr><td>청룡</td><td>10</td><td>55</td><td>0</td><td>65</td><td>아레나(5) / 통행증(5) / 궁극 테이머 스킬(20) / 강화 테이머 스킬(15)</td><td>45</td><td class="num">20</td></tr>
+                    <tr><td>백호</td><td>0</td><td>60</td><td>0</td><td>60</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">15</td></tr>
                     <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 5주차 / 수급: 전부45 -->
         <div class="week-content" id="sc1-w5">
             <h3>5주차 (11/10 ~ 11/16)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>29</td><td>40</td><td>0</td><td>69</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">40</td></tr>
-                    <tr><td>주작</td><td>25</td><td>40</td><td>0</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">15</td></tr>
-                    <tr><td>청룡</td><td>0</td><td>40</td><td>0</td><td>40</td><td>아레나(5) / 통행증(5) / 백업칩(15)</td><td>25</td><td class="num">15</td></tr>
-                    <tr><td>백호</td><td>5</td><td>40</td><td>0</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">10</td></tr>
+                    <tr><td>현무</td><td>24</td><td>40</td><td>0</td><td>64</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">35</td></tr>
+                    <tr><td>주작</td><td>15</td><td>45</td><td>0</td><td>60</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치 변경 스톤(10)</td><td>50</td><td class="num">10</td></tr>
+                    <tr><td>청룡</td><td>20</td><td>45</td><td>0</td><td>65</td><td>아레나(5) / 통행증(5) / 궁극 테이머 스킬(20) / 강화 테이머 스킬(15)</td><td>45</td><td class="num">20</td></tr>
+                    <tr><td>백호</td><td>15</td><td>45</td><td>0</td><td>60</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">15</td></tr>
                     <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 6주차 / 수급: 주작45 / 청룡40 / 백호40 -->
         <div class="week-content" id="sc1-w6">
             <h3>6주차 (11/17 ~ 11/23)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>40</td><td>40</td><td>0</td><td>80</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">51</td></tr>
-                    <tr><td>주작</td><td>15</td><td>40</td><td>0</td><td>55</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">25</td></tr>
-                    <tr><td>청룡</td><td>15</td><td>40</td><td>0</td><td>55</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15)</td><td>40</td><td class="num">15</td></tr>
-                    <tr><td>백호</td><td>10</td><td>40</td><td>0</td><td>50</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">15</td></tr>
+                    <tr><td>현무</td><td>35</td><td>45</td><td>0</td><td>80</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">51</td></tr>
+                    <tr><td>주작</td><td>10</td><td>45</td><td>0</td><td>55</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">25</td></tr>
+                    <tr><td>청룡</td><td>20</td><td>40</td><td>0</td><td>60</td><td>아레나(5) / 통행증(5) / 궁극 테이머 스킬(20) / 강화 테이머 스킬(15)</td><td>45</td><td class="num">15</td></tr>
+                    <tr><td>백호</td><td>15</td><td>40</td><td>0</td><td>55</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">10</td></tr>
                     <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 7주차 / 수급: 주작40 / 청룡45 / 백호45 -->
         <div class="week-content" id="sc1-w7">
             <h3>7주차 (11/24 ~ 11/30)</h3>
             <table>
@@ -180,12 +192,14 @@
                 <tbody>
                     <tr><td>현무</td><td>51</td><td>40</td><td>0</td><td>91</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">62</td></tr>
                     <tr><td>주작</td><td>25</td><td>40</td><td>0</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">35</td></tr>
-                    <tr><td>청룡</td><td>15</td><td>40</td><td>0</td><td>55</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">45</td></tr>
-                    <tr><td>백호</td><td>15</td><td>40</td><td>0</td><td>55</td><td>궁강디(20)</td><td>20</td><td class="num">35</td></tr>
+                    <tr><td>청룡</td><td>15</td><td>45</td><td>0</td><td>60</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">50</td></tr>
+                    <tr><td>백호</td><td>10</td><td>45</td><td>0</td><td>55</td><td>궁강디(20)</td><td>20</td><td class="num">35</td></tr>
                     <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 8주차 / 수급: 전부40 -->
         <div class="week-content" id="sc1-w8">
             <h3>8주차 (12/1 ~ 12/7)</h3>
             <table>
@@ -193,30 +207,32 @@
                 <tbody>
                     <tr><td>현무</td><td>62</td><td>40</td><td>0</td><td>102</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고8(8)</td><td>27</td><td class="num">75</td></tr>
                     <tr><td>주작</td><td>35</td><td>40</td><td>0</td><td>75</td><td>구매 안함</td><td>0</td><td class="num">75</td></tr>
-                    <tr><td>청룡</td><td>45</td><td>40</td><td>0</td><td>85</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">75</td></tr>
+                    <tr><td>청룡</td><td>50</td><td>40</td><td>0</td><td>90</td><td>아레나(5) / 통행증(5) / 강화 백업칩1(5)</td><td>15</td><td class="num">75</td></tr>
                     <tr><td>백호</td><td>35</td><td>40</td><td>0</td><td>75</td><td>구매 안함</td><td>0</td><td class="num">75</td></tr>
-                    <tr><td>17주년코인</td><td>35</td><td>20</td><td>0</td><td>55</td><td>SSS+선택상자(30) / 픽업상자(25)</td><td>55</td><td>0</td></tr>
+                    <tr><td>17주년코인</td><td>35</td><td>20</td><td>0</td><td>55</td><td>SSS+선택상자(35) / 픽업상자(20)</td><td>55</td><td>0</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 마지막날 / 수급: 전부5 -->
         <div class="week-content" id="sc1-wlast">
             <h3>마지막날 (12/8)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
-                    <tr><td>주작</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
-                    <tr><td>청룡</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
-                    <tr><td>백호</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
-                    <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>모든 구매 완료</td><td>—</td><td>0</td></tr>
+                    <tr><td>현무</td><td>257</td><td>5</td><td>0</td><td>262</td><td>씰 구매</td><td>80</td><td class="num">182</td></tr>
+                    <tr><td>주작</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num">0</td></tr>
+                    <tr><td>청룡</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num">0</td></tr>
+                    <tr><td>백호</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num">0</td></tr>
+                    <tr><td>17주년코인</td><td>0</td><td>—</td><td>0</td><td>0</td><td>모든 구매 완료</td><td>—</td><td>0</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- =============== 시나리오 2 =============== -->
+
+    <!-- =============== 17주년 기념 선택 2 =============== -->
     <div class="tab-content" id="sc2">
         <h2>주차별 구매 내역</h2>
-        <!-- ✅ 주차 선택 탭 -->
         <div class="week-tab-wrap">
             <div class="week-tab active" data-week="sc2-w1">1주차</div>
             <div class="week-tab" data-week="sc2-w2">2주차</div>
@@ -229,7 +245,8 @@
             <div class="week-tab" data-week="sc2-wlast">마지막날</div>
             <div class="week-tab" data-view="all">전체보기</div>
         </div>
-        <!-- ✅ 주차별 내용 -->
+
+        <!-- 1주차 -->
         <div class="week-content active" id="sc2-w1">
             <h3>1주차 (10/13 ~ 10/19)</h3>
             <table>
@@ -237,114 +254,129 @@
                 <tbody>
                     <tr><td>현무</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">11</td></tr>
                     <tr><td>주작</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">10</td></tr>
-                    <tr><td>청룡</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>아레나(5) / 통행증(5) / 데미지스킨(10) / 백업칩(15)</td><td>35</td><td class="num">5</td></tr>
-                    <tr><td>백호</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
+                    <tr><td>청룡</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>아레나(5) / 통행증(5) / 데미지 스킨(10) / 강화 백업칩(15)</td><td>35</td><td class="num">5</td></tr>
+                    <tr><td>백호</td><td>0</td><td>55</td><td>-20</td><td>35</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">0</td></tr>
                     <tr><td>17주년코인</td><td>—</td><td>—</td><td>20</td><td>20</td><td>—</td><td>—</td><td>20</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 2주차 / 교환-20 -->
         <div class="week-content" id="sc2-w2">
             <h3>2주차 (10/20 ~ 10/26)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
                     <tr><td>현무</td><td>11</td><td>60</td><td>-20</td><td>51</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10)</td><td>39</td><td class="num">12</td></tr>
-                    <tr><td>주작</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">0</td></tr>
-                    <tr><td>청룡</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>아레나(5) / 통행증(5) / 업적(25)</td><td>35</td><td class="num">10</td></tr>
-                    <tr><td>백호</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">0</td></tr>
+                    <tr><td>주작</td><td>10</td><td>55</td><td>-20</td><td>45</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">15</td></tr>
+                    <tr><td>청룡</td><td>5</td><td>55</td><td>-20</td><td>40</td><td>아레나(5) / 통행증(5) / 업적(25)</td><td>35</td><td class="num">5</td></tr>
+                    <tr><td>백호</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
                     <tr><td>17주년코인</td><td>20</td><td>—</td><td>20</td><td>40</td><td>—</td><td>0</td><td>40</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 3주차 / 교환-20 -->
         <div class="week-content" id="sc2-w3">
             <h3>3주차 (10/27 ~ 11/2)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>12</td><td>60</td><td>-20</td><td>52</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 5단교환권(15)</td><td>44</td><td class="num">8</td></tr>
-                    <tr><td>주작</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">10</td></tr>
-                    <tr><td>청룡</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15)</td><td>40</td><td class="num">10</td></tr>
-                    <tr><td>백호</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
-                    <tr><td>17주년코인</td><td>40</td><td>—</td><td>20</td><td>60</td><td>SSS+선택상자(30) / 픽업상자(25)</td><td>55</td><td>5</td></tr>
+                    <tr><td>현무</td><td>12</td><td>55</td><td>-20</td><td>47</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 5단교환권(15)</td><td>44</td><td class="num">3</td></tr>
+                    <tr><td>주작</td><td>15</td><td>60</td><td>-20</td><td>55</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션(수치) 변경 스톤(10)</td><td>40</td><td class="num">15</td></tr>
+                    <tr><td>청룡</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>아레나(5) / 통행증(5) / 강화 백업칩(15) / 강화 테이머 스킬(15)</td><td>40</td><td class="num">5</td></tr>
+                    <tr><td>백호</td><td>5</td><td>55</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
+                    <tr><td>17주년코인</td><td>40</td><td>—</td><td>20</td><td>60</td><td>SSS+선택상자(35) / 픽업상자(20)</td><td>55</td><td>5</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 4주차 / 교환-20 -->
         <div class="week-content" id="sc2-w4">
             <h3>4주차 (11/3 ~ 11/9)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>8</td><td>60</td><td>-20</td><td>48</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10)</td><td>39</td><td class="num">9</td></tr>
-                    <tr><td>주작</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">0</td></tr>
-                    <tr><td>청룡</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 궁극 테이머 스킬(20)</td><td>45</td><td class="num">5</td></tr>
-                    <tr><td>백호</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">0</td></tr>
+                    <tr><td>현무</td><td>3</td><td>60</td><td>-20</td><td>43</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">14</td></tr>
+                    <tr><td>주작</td><td>15</td><td>55</td><td>-20</td><td>50</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션(수치) 변경 스톤(10)</td><td>40</td><td class="num">10</td></tr>
+                    <tr><td>청룡</td><td>5</td><td>55</td><td>-20</td><td>40</td><td>아레나(5) / 통행증(5) / 궁극 테이머 스킬(20)</td><td>30</td><td class="num">10</td></tr>
+                    <tr><td>백호</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">10</td></tr>
                     <tr><td>17주년코인</td><td>5</td><td>—</td><td>20</td><td>25</td><td>—</td><td>—</td><td>25</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 5주차 / 교환-20 -->
         <div class="week-content" id="sc2-w5">
             <h3>5주차 (11/10 ~ 11/16)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>9</td><td>40</td><td>-20</td><td>29</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보or창고[10개](10)</td><td>19</td><td class="num">10</td></tr>
-                    <tr><td>주작</td><td>0</td><td>40</td><td>-20</td><td>20</td><td>구매 안함</td><td>0</td><td class="num">20</td></tr>
-                    <tr><td>청룡</td><td>5</td><td>40</td><td>-20</td><td>25</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">15</td></tr>
-                    <tr><td>백호</td><td>0</td><td>40</td><td>-20</td><td>20</td><td>궁강디(20)</td><td>20</td><td class="num">0</td></tr>
+                    <tr><td>현무</td><td>14</td><td>40</td><td>-20</td><td>34</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보or창고[10개](10)</td><td>19</td><td class="num">15</td></tr>
+                    <tr><td>주작</td><td>10</td><td>45</td><td>-20</td><td>35</td><td>구매 안함</td><td>0</td><td class="num">35</td></tr>
+                    <tr><td>청룡</td><td>10</td><td>45</td><td>-20</td><td>35</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">25</td></tr>
+                    <tr><td>백호</td><td>10</td><td>45</td><td>-20</td><td>35</td><td>궁강디(20)</td><td>20</td><td class="num">15</td></tr>
                     <tr><td>17주년코인</td><td>25</td><td>—</td><td>20</td><td>45</td><td>—</td><td>—</td><td>45</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 6주차 / 교환-15 -->
         <div class="week-content" id="sc2-w6">
             <h3>6주차 (11/17 ~ 11/23)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>10</td><td>40</td><td>-15</td><td>35</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보or창고[10개](10) / 5단 교환권(15)</td><td>34</td><td class="num">1</td></tr>
-                    <tr><td>주작</td><td>20</td><td>40</td><td>-15</td><td>45</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">15</td></tr>
-                    <tr><td>청룡</td><td>15</td><td>40</td><td>-15</td><td>40</td><td>아레나(5) / 통행증(5) / 백업칩(15)</td><td>25</td><td class="num">15</td></tr>
-                    <tr><td>백호</td><td>0</td><td>40</td><td>-15</td><td>25</td><td>궁강디(20)</td><td>20</td><td class="num">5</td></tr>
+                    <tr><td>현무</td><td>15</td><td>45</td><td>-15</td><td>45</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보or창고[10개](10) / 5단교환권(15)</td><td>34</td><td class="num">11</td></tr>
+                    <tr><td>주작</td><td>35</td><td>45</td><td>-15</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치 변경 스톤(10)</td><td>50</td><td class="num">15</td></tr>
+                    <tr><td>청룡</td><td>25</td><td>40</td><td>-15</td><td>50</td><td>아레나(5) / 통행증(5) / 강화 백업칩(15)</td><td>25</td><td class="num">25</td></tr>
+                    <tr><td>백호</td><td>15</td><td>40</td><td>-15</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5)</td><td>25</td><td class="num">15</td></tr>
                     <tr><td>17주년코인</td><td>45</td><td>—</td><td>15</td><td>60</td><td>—</td><td>—</td><td>60</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 7주차 / 교환없음 -->
         <div class="week-content" id="sc2-w7">
             <h3>7주차 (11/24 ~ 11/30)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>1</td><td>40</td><td>0</td><td>41</td><td>구매 안함</td><td>0</td><td class="num">41</td></tr>
+                    <tr><td>현무</td><td>11</td><td>40</td><td>0</td><td>51</td><td>구매 안함</td><td>0</td><td class="num">51</td></tr>
                     <tr><td>주작</td><td>15</td><td>40</td><td>0</td><td>55</td><td>구매 안함</td><td>0</td><td class="num">55</td></tr>
-                    <tr><td>청룡</td><td>15</td><td>40</td><td>0</td><td>55</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">45</td></tr>
-                    <tr><td>백호</td><td>5</td><td>40</td><td>0</td><td>45</td><td>구매 안함</td><td>0</td><td class="num">45</td></tr>
+                    <tr><td>청룡</td><td>25</td><td>45</td><td>0</td><td>70</td><td>아레나(5) / 통행증(5) / 강화 테이머 스킬(15)</td><td>25</td><td class="num">45</td></tr>
+                    <tr><td>백호</td><td>15</td><td>45</td><td>0</td><td>60</td><td>구매 안함</td><td>0</td><td class="num">60</td></tr>
                     <tr><td>17주년코인</td><td>60</td><td>—</td><td>0</td><td>60</td><td>—</td><td>—</td><td>60</td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 8주차 / 교환없음 -->
         <div class="week-content" id="sc2-w8">
             <h3>8주차 (12/1 ~ 12/7)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>41</td><td>40</td><td>0</td><td>81</td><td>속성버프(3) / 정점버프(3)</td><td>6</td><td class="num">75</td></tr>
-                    <tr><td>주작</td><td>55</td><td>40</td><td>0</td><td>95</td><td>옵션 변경 재봉틀or수치변경 재봉틀(15)</td><td>15</td><td class="num">80</td></tr>
+                    <tr><td>현무</td><td>51</td><td>40</td><td>0</td><td>91</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보or창고[7개](7)</td><td>16</td><td class="num">75</td></tr>
+                    <tr><td>주작</td><td>55</td><td>40</td><td>0</td><td>95</td><td>옵션(수치) 변경 재봉틀(15)</td><td>15</td><td class="num">80</td></tr>
                     <tr><td>청룡</td><td>45</td><td>40</td><td>0</td><td>85</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">75</td></tr>
-                    <tr><td>백호</td><td>45</td><td>40</td><td>0</td><td>85</td><td>메모리캡슐or메모리큐브[1개](10)</td><td>10</td><td class="num">75</td></tr>
+                    <tr><td>백호</td><td>60</td><td>40</td><td>0</td><td>100</td><td>궁강디(20) / 명찰 강화 백업칩(5)</td><td>25</td><td class="num">75</td></tr>
                     <tr><td>17주년코인</td><td>60</td><td>20</td><td>0</td><td>80</td><td>슬픔과 결의의 상자(80)</td><td>80</td><td>0</td></tr>
                 </tbody>
             </table>
         </div>
 
+        <!-- 마지막날 -->
         <div class="week-content" id="sc2-wlast">
             <h3>마지막날 (12/8)</h3>
             <table>
                 <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
                 <tbody>
-                    <tr><td>현무</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
-                    <tr><td>주작</td><td>80</td><td>5</td><td>0</td><td>85</td><td>씰 구매</td><td>80</td><td class="num ok">5</td></tr>
-                    <tr><td>청룡</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
-                    <tr><td>백호</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
-                    <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>모든 구매 완료</td><td>—</td><td>0</td></tr>
+                    <tr><td>현무</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num">0</td></tr>
+                    <tr><td>주작</td><td>80</td><td>5</td><td>0</td><td>85</td><td>씰 구매</td><td>80</td><td class="num">5</td></tr>
+                    <tr><td>청룡</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num">0</td></tr>
+                    <tr><td>백호</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num">0</td></tr>
+                    <tr><td>17주년코인</td><td>0</td><td>—</td><td>0</td><td>0</td><td>모든 구매 완료</td><td>—</td><td>0</td></tr>
                 </tbody>
             </table>
         </div>
@@ -352,29 +384,22 @@
 </div>
 
 <script>
-    // 시나리오 탭 전환
     const scenarioTabs = document.querySelectorAll('.tab');
     scenarioTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             this.classList.add('active');
-
             const targetId = this.getAttribute('data-tab');
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active', 'show-all'));
             document.getElementById(targetId).classList.add('active');
         });
     });
-
-    // 주차 탭 전환 + 전체보기
     const weekTabs = document.querySelectorAll('.week-tab');
     weekTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const parentContent = this.closest('.tab-content');
-
             parentContent.querySelectorAll('.week-tab').forEach(t => t.classList.remove('active'));
             this.classList.add('active');
-
-            // 전체보기인지 확인
             if (this.hasAttribute('data-view') && this.getAttribute('data-view') === 'all') {
                 parentContent.classList.add('show-all');
             } else {
