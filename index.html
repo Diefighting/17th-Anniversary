@@ -1,39 +1,321 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>사성수 코인 계획표</title>
-<style>
-:root{--brown:#806044;--light:#F2E8DC;--green:#287D52;--greenlight:#E1F2E7;--border:#D2BCA5;--muted:#75695e}*{box-sizing:border-box}body{margin:0;background:#faf7f3;color:#30271f;font-family:system-ui,-apple-system,"Malgun Gothic","맑은 고딕",sans-serif;line-height:1.55}main{max-width:900px;margin:auto;padding:28px 18px 60px}h1{font-size:clamp(1.7rem,4vw,2.3rem);margin:0}h2{font-size:1.35rem;margin:0 0 12px}h3{font-size:1.1rem;margin:0}.sub,.small{color:var(--muted)}.sub{margin-bottom:22px}.scenarios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:16px}button{font:inherit;cursor:pointer;border:0}.scenario,.week,.lastday{border-radius:14px;padding:13px 15px;text-align:left}.scenario{background:var(--light);color:var(--brown);min-height:78px}.scenario strong{display:block;font-size:1.05rem}.active{background:var(--brown)!important;color:white!important}.goal,.coinbox{background:var(--light);color:var(--brown);border-radius:16px;padding:18px;margin:14px 0 24px}.goal h2,.coinbox h3{margin-bottom:10px}.goalitems{display:grid;gap:5px;font-weight:600}.weekgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}.week{background:var(--light);color:var(--brown);text-align:center;padding:10px 4px}.lastday{display:block;width:100%;background:var(--light);color:var(--brown);font-weight:700;margin-bottom:20px}.coinrow{display:flex;justify-content:space-between;align-items:center;padding:5px 0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{border:1px solid var(--border);background:white;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:160px}.card p{margin:0}.pill{align-self:flex-end;background:var(--greenlight);color:var(--green);border-radius:999px;padding:5px 12px;font-weight:700;font-size:.9rem;margin-top:auto}.divider{height:1px;background:var(--border);margin:10px 0}.small{font-size:.9rem}@media(max-width:600px){main{padding:22px 12px 40px}.cards{grid-template-columns:1fr}.scenario,.goal,.coinbox{padding:15px}}
-</style></head><body><main>
-<h1>사성수 코인 계획표</h1><div class="sub">10/13 ~ 12/7</div>
-<section class="scenarios"><button class="scenario active" data-s="1"><strong>시나리오 1</strong>기념코인 55개 목표</button><button class="scenario" data-s="2"><strong>시나리오 2</strong>기념코인 135개 목표</button></section>
-<section class="goal"><h2>목표 아이템</h2><div class="goalitems" id="goals"></div></section>
-<h2>주차별 구매 내역</h2><nav class="weekgrid" id="weeks"></nav><button class="lastday" id="lastday">마지막 날 — 12/7</button><section id="content"></section><p class="small">※ 누적 코인은 제공된 계획의 수치를 기준으로 표시했습니다.</p>
-</main><script>
-const names=['현무','주작','청룡','백호'];
-const coins={1:[[60,60,60,55],[67,65,60,75],[76,81,76,76],[88,86,86,96],[80,81,86,101],[93,88,97,102],[100,98,112,107],[109,110,115,110]],2:[[60,60,60,55],[79,65,60,75],[95,76,71,71],[99,81,76,81],[83,76,71,86],[88,73,62,77],[92,68,82,87],[107,80,115,110]]};
-const goals={1:['SSS+ 선택 상자 × 1','픽업 선택 상자 Ver.II × 1'],2:['슬픔과 결의의 상자 × 1','SSS+ 선택 상자 × 1','픽업 선택 상자 Ver.II × 1']};
-const data={
-1:[
-[['디보 ×7, 창고 ×7, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1. 기념코인 20개 제작',7],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3. 기념코인 20개 제작',10],['17주년 업적 아이템 ×1, 아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1. 기념코인 20개 제작',5],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3. 기념코인 20개 제작',15]],
-[['디보 ×7, 창고 ×7, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1. 기념코인 15개 제작',19],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 기념코인 15개 제작',20],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 선택 상자 ×1, 기념코인 15개 제작',15],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 궁극 강화 디지클론 세트 상자 ×1, 기념코인 15개 제작',20]],
-[['디보 ×7, 창고 ×7, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1, 5단계 디지몬알 교환권 ×1',28],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 옵션·수치 변경 스톤 구매',31],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1, 강화 테이머 스킬 상자 ×1',31],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×2',36]],
-[['디보 ×7, 창고 ×7, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1, 5단계 디지몬알 교환권 ×1',40],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 옵션·수치 변경 스톤 구매',36],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1, 강화 테이머 스킬 상자 ×1',41],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×2',56]],
-[['디보 ×7, 창고 ×7, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1',47],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 스톤 구매',41],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1',56],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×2',61]],
-[['디보 ×7, 창고 ×7, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1',60],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3',58],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1',67],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×2',62]],
-[['디보 ×7, 창고 ×7, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1',67],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3',68],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 강화 테이머 스킬 상자 ×1, 강화 백업 칩 ×3',72],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×2',67]],
-[['디보 ×4, 창고 ×4, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1',82],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3',80],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 강화 백업 칩 ×3, 데미지 스킨 선택 상자 ×1',80],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×1',80]]
-],
-2:[
-[['디보 ×1, 창고 ×1, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1. 기념코인 20개 제작',19],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3. 기념코인 20개 제작',10],['업적 아이템 ×1, 아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1. 기념코인 20개 제작',5],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3. 기념코인 20개 제작',15]],
-[['디보 ×1, 창고 ×1, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1. 기념코인 20개 제작',38],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 기념코인 20개 제작',15],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1, 기념코인 20개 제작',10],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 궁극 강화 디지클론 세트 상자 ×1, 기념코인 20개 제작',15]],
-[['디보 ×1, 창고 ×1, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1, 5단계 디지몬알 교환권 ×1. 기념코인 20개 제작',39],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 기념코인 20개 제작',26],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1, 기념코인 20개 제작',21],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×1, 기념코인 20개 제작',21]],
-[['디보 ×1, 창고 ×1, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1, 5단계 디지몬알 교환권 ×1. 기념코인 20개 제작',43],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 기념코인 20개 제작',31],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1, 기념코인 20개 제작',26],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×1, 기념코인 20개 제작',31]],
-[['디보 ×1, 창고 ×1, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1. 기념코인 20개 제작',42],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 기념코인 20개 제작',26],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 궁극 테이머 스킬 상자 ×1, 기념코인 20개 제작',21],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기념코인 20개 제작',36]],
-[['디보 ×1, 창고 ×1, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1. 기념코인 15개 제작',52],['옵션 변경 재봉틀 ×3, 수치 변경 재봉틀 ×3, 기념코인 15개 제작',28],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 기념코인 15개 제작',37],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기념코인 15개 제작',42]],
-[['디보 ×4, 창고 ×4, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1',65],['재봉틀 구매 없음',38],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1',72],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3',67]],
-[['디보 ×4, 창고 ×4, 속성 버프 ×1, 정점 버프 ×1, 슈증 ×1, 에너지 드링크 2종 각 ×1',80],['재봉틀 구매 없음',80],['아레나 입장권 상자 ×1, 터미널 지하 통행증 ×1, 데미지 스킨 선택 상자 ×1, 강화 백업 칩 ×3',80],['명찰 강화 백업 칩 ×1, 돌파 옵션 주사위 ×3, 기술 관련 아이템 ×1',80]]
-]};
-let scenario=1,week=1,last=false;
-function card(name,desc,remaining){return `<article class="card"><h3>${name}</h3><p>${desc}</p><span class="pill">잔여 ${remaining}</span></article>`}
-function render(){document.querySelectorAll('.scenario').forEach(b=>b.classList.toggle('active',Number(b.dataset.s)===scenario));document.getElementById('goals').innerHTML=goals[scenario].map(x=>`<div>${x}</div>`).join('');document.getElementById('weeks').innerHTML=Array.from({length:8},(_,i)=>`<button class="week ${!last&&week===i+1?'active':''}" data-w="${i+1}">${i+1}주차</button>`).join('');document.querySelectorAll('.week').forEach(b=>b.addEventListener('click',()=>{week=Number(b.dataset.w);last=false;render()}));document.getElementById('lastday').classList.toggle('active',last);let c=document.getElementById('content');if(last){let seals=[['HP 씰 ×20, AT 씰 ×20',scenario===1?'2개':'0개'],['DS 씰 ×20, CT 씰 ×20','0개'],['HT 씰 ×20, DE 씰 ×20','0개'],['BL 씰 ×20, EV 씰 ×20','0개']];c.innerHTML=`<h2>마지막 날 구매 내역</h2><p class="small">12월 7일 · 사성수별 씰 구매</p><div class="cards">${seals.map((x,i)=>card(names[i],x[0],x[1])).join('')}</div><section class="goal" style="margin-top:18px"><h2>최종 목표 아이템</h2><div class="goalitems">${goals[scenario].map(x=>`<div>${x}</div>`).join('')}</div><div class="divider"></div><div class="coinrow"><span>직접 제작</span><strong>${scenario===1?'35개':'115개'}</strong></div><div class="coinrow"><span>출석 보상</span><strong>20개</strong></div><div class="coinrow"><strong>총 기념코인</strong><strong>${scenario===1?'55개':'135개'}</strong></div><p class="small">12/6 출석 보상 수령 후 목표 아이템 구매</p></section>`}else{let cs=coins[scenario][week-1],e=data[scenario][week-1];c.innerHTML=`<h2>${week}주차 구매 내역</h2><section class="coinbox"><h3>주차별 누적 코인</h3>${cs.map((v,i)=>`<div class="coinrow"><span>${names[i]}</span><strong>${v}개</strong></div>`).join('')}</section><div class="cards">${e.map((x,i)=>card(names[i],x[0],x[1]+'개')).join('')}</div>`}}
-document.querySelectorAll('.scenario').forEach(b=>b.addEventListener('click',()=>{scenario=Number(b.dataset.s);week=1;last=false;render()}));document.getElementById('lastday').addEventListener('click',()=>{last=!last;render()});render();
-</script></body></html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사성수 코인 계획표</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:"Noto Sans KR", sans-serif;}
+        body {background:#f5f3ef; color:#333; padding:20px; line-height:1.6;}
+        .container {max-width:1200px; margin:0 auto; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;}
+        .header {background:linear-gradient(135deg, #8b5a2b, #a67c52); color:#fff; padding:24px; text-align:center;}
+        .header h1 {font-size:22px; margin-bottom:4px;}
+        .header p {font-size:14px; opacity:0.9;}
+        .tab-wrap {display:flex; background:#e8e4dc;}
+        .tab {flex:1; padding:14px; text-align:center; cursor:pointer; font-weight:600; transition:all 0.25s; border-bottom:3px solid transparent;}
+        .tab.active {background:#fff; border-bottom:3px solid #8b5a2b; color:#8b5a2b;}
+        .tab-content {display:none; padding:24px;}
+        .tab-content.active {display:block; animation:fadeIn 0.3s ease;}
+        @keyframes fadeIn {from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+        h2 {font-size:18px; color:#8b5a2b; margin:24px 0 12px; padding-bottom:6px; border-bottom:2px solid #e0d8c8;}
+        h2:first-child {margin-top:0;}
+        h3 {font-size:15px; margin:20px 0 8px; color:#5a432c;}
+        table {width:100%; border-collapse:collapse; margin:12px 0 24px; font-size:13.5px;}
+        table th:nth-child(1),table td:nth-child(1)  { width: 8%; }   /* 구분 */
+        table th:nth-child(2),table td:nth-child(2)  { width: 6%; }   /* 시작 */
+        table th:nth-child(3),table td:nth-child(3)  { width: 6%; }   /* 수급 */
+        table th:nth-child(4),table td:nth-child(4)  { width: 8%; }  /* 코인교환 */
+        table th:nth-child(5),table td:nth-child(5)  { width: 6%; }   /* 잔액 */
+        table th:nth-child(6),table td:nth-child(6)  { width: 52%; }  /* 구매내역 */
+        table th:nth-child(7),table td:nth-child(7)  { width: 6%; }   /* 사용 */
+        table th:nth-child(8),table td:nth-child(8)  { width: 8%; }  /* 최종잔고 */
+        th, td {border:1px solid #e0d8c8; padding:9px 10px; text-align:center;}
+        th {background:#f0eade; font-weight:600; color:#5a432c;}
+        tr:nth-child(even) td {background:#faf8f4;}
+        .num {font-weight:600; color:#8b5a2b;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>사성수 코인 계획표</h1>
+        <p>기간: 10/13 ~ 12/8</p>
+    </div>
+
+    <div class="tab-wrap">
+        <div class="tab active" data-tab="sc1">
+            <div class="tab-box box1">
+                시나리오 1 (필요 55개)
+                <h3>SSS+ 선택 상자 ×1<br>픽업 선택 상자 ×1</h3>
+            </div>
+        </div>
+        <div class="tab" data-tab="sc2">
+            <div class="tab-box box2">
+                시나리오 2 (필요 135개)
+                <h3>SSS+ 선택 상자 ×1<br>픽업 선택 상자 ×1<br>슬픔과 결의의 상자 ×1</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============== 시나리오 1 =============== -->
+    <div class="tab-content active" id="sc1">
+
+        <h2>🛒 주차별 구매 내역</h2>
+
+        <h3>1주차 (10/13 ~ 10/19)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">11</td></tr>
+                <tr><td>주작</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">10</td></tr>
+                <tr><td>청룡</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>아레나(5) / 통행증(5) / 데미지스킨(10) / 백업칩(15)</td><td>35</td><td class="num">5</td></tr>
+                <tr><td>백호</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
+                <tr><td>17주년코인</td><td>—</td><td>—</td><td>20</td><td>20</td><td>—</td><td>—</td><td>20</td></tr>
+            </tbody>
+        </table>
+
+        <h3>2주차 (10/20 ~ 10/26)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>11</td><td>60</td><td>-15</td><td>56</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10) / 5단교환권(15)</td><td>54</td><td class="num">2</td></tr>
+                <tr><td>주작</td><td>10</td><td>60</td><td>-15</td><td>55</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">5</td></tr>
+                <tr><td>청룡</td><td>5</td><td>60</td><td>-15</td><td>50</td><td>아레나(5) / 통행증(5) / 업적(25) / 강화 테이머 스킬(15)</td><td>50</td><td class="num">0</td></tr>
+                <tr><td>백호</td><td>5</td><td>60</td><td>-15</td><td>50</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">5</td></tr>
+                <tr><td>17주년코인</td><td>20</td><td>—</td><td>15</td><td>35</td><td>—</td><td>0</td><td>35</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3주차 (10/27 ~ 11/2)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>2</td><td>60</td><td>0</td><td>62</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10) / 5단교환권(15)</td><td>54</td><td class="num">8</td></tr>
+                <tr><td>주작</td><td>5</td><td>60</td><td>0</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">15</td></tr>
+                <tr><td>청룡</td><td>0</td><td>60</td><td>0</td><td>60</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15) / 궁극 테이머 스킬(20)</td><td>60</td><td class="num">0</td></tr>
+                <tr><td>백호</td><td>5</td><td>60</td><td>0</td><td>65</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[3개](30)</td><td>55</td><td class="num">10</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
+            </tbody>
+        </table>
+
+        <h3>4주차 (11/3 ~ 11/9)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>8</td><td>60</td><td>0</td><td>68</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10)</td><td>39</td><td class="num">29</td></tr>
+                <tr><td>주작</td><td>15</td><td>60</td><td>0</td><td>75</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">25</td></tr>
+                <tr><td>청룡</td><td>0</td><td>60</td><td>0</td><td>60</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15) / 궁극 테이머 스킬(20)</td><td>60</td><td class="num">0</td></tr>
+                <tr><td>백호</td><td>10</td><td>60</td><td>0</td><td>70</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[4개](40)</td><td>65</td><td class="num">5</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
+            </tbody>
+        </table>
+
+        <h3>5주차 (11/10 ~ 11/16)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>29</td><td>40</td><td>0</td><td>69</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">40</td></tr>
+                <tr><td>주작</td><td>25</td><td>40</td><td>0</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">15</td></tr>
+                <tr><td>청룡</td><td>0</td><td>40</td><td>0</td><td>40</td><td>아레나(5) / 통행증(5) / 백업칩(15)</td><td>25</td><td class="num">15</td></tr>
+                <tr><td>백호</td><td>5</td><td>40</td><td>0</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">10</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6주차 (11/17 ~ 11/23)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>40</td><td>40</td><td>0</td><td>80</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">51</td></tr>
+                <tr><td>주작</td><td>15</td><td>40</td><td>0</td><td>55</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">25</td></tr>
+                <tr><td>청룡</td><td>15</td><td>40</td><td>0</td><td>55</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15)</td><td>40</td><td class="num">15</td></tr>
+                <tr><td>백호</td><td>10</td><td>40</td><td>0</td><td>50</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">15</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
+            </tbody>
+        </table>
+
+        <h3>7주차 (11/24 ~ 11/30)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>51</td><td>40</td><td>0</td><td>91</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">62</td></tr>
+                <tr><td>주작</td><td>25</td><td>40</td><td>0</td><td>65</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">35</td></tr>
+                <tr><td>청룡</td><td>15</td><td>40</td><td>0</td><td>55</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">45</td></tr>
+                <tr><td>백호</td><td>15</td><td>40</td><td>0</td><td>55</td><td>궁강디(20)</td><td>20</td><td class="num">35</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>—</td><td>—</td><td>35</td></tr>
+            </tbody>
+        </table>
+
+        <h3>8주차 (12/1 ~ 12/7)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>62</td><td>40</td><td>0</td><td>102</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고8(8)</td><td>27</td><td class="num">75</td></tr>
+                <tr><td>주작</td><td>35</td><td>40</td><td>0</td><td>75</td><td>구매 안함</span></td><td>0</td><td class="num">75</td></tr>
+                <tr><td>청룡</td><td>45</td><td>40</td><td>0</td><td>85</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">75</td></tr>
+                <tr><td>백호</td><td>35</td><td>40</td><td>0</td><td>75</td><td>구매안함</span></td><td>0</td><td class="num">75</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>20</td><td>0</td><td>55</td><td>SSS+선택상자(30) / 픽업상자(25)</td><td>55</td><td>0</td></tr>
+            </tbody>
+        </table>
+
+        <h3>마지막날 (12/8)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
+                <tr><td>주작</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
+                <tr><td>청룡</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
+                <tr><td>백호</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>모든 구매 완료</td><td>—</td><td>0</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- =============== 시나리오 2 =============== -->
+    <div class="tab-content" id="sc2">
+
+        <h2>🛒 주차별 구매 내역</h2>
+
+        <h3>1주차 (10/13 ~ 10/19)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10)</td><td>29</td><td class="num">11</td></tr>
+                <tr><td>주작</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">10</td></tr>
+                <tr><td>청룡</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>아레나(5) / 통행증(5) / 데미지스킨(10) / 백업칩(15)</td><td>35</td><td class="num">5</td></tr>
+                <tr><td>백호</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
+                <tr><td>17주년코인</td><td>—</td><td>—</td><td>20</td><td>20</td><td>—</td><td>—</td><td>20</td></tr>
+            </tbody>
+        </table>
+
+        <h3>2주차 (10/20 ~ 10/26)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>11</td><td>60</td><td>-20</td><td>51</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10)</td><td>39</td><td class="num">12</td></tr>
+                <tr><td>주작</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">0</td></tr>
+                <tr><td>청룡</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>아레나(5) / 통행증(5) / 업적(25)</td><td>35</td><td class="num">10</td></tr>
+                <tr><td>백호</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">0</td></tr>
+                <tr><td>17주년코인</td><td>20</td><td>—</td><td>20</td><td>40</td><td>—</td><td>0</td><td>40</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3주차 (10/27 ~ 11/2)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>12</td><td>60</td><td>-20</td><td>52</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 5단교환권(15)</td><td>44</td><td class="num">8</td></tr>
+                <tr><td>주작</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">10</td></tr>
+                <tr><td>청룡</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 강화 테이머 스킬(15)</td><td>40</td><td class="num">10</td></tr>
+                <tr><td>백호</td><td>0</td><td>60</td><td>-20</td><td>40</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[1개](10)</td><td>35</td><td class="num">5</td></tr>
+                <tr><td>17주년코인</td><td>40</td><td>—</td><td>20</td><td>60</td><td>SSS+선택상자(30) / 픽업상자(25)</td><td>55</td><td>5</td></tr>
+            </tbody>
+        </table>
+
+        <h3>4주차 (11/3 ~ 11/9)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>8</td><td>60</td><td>-20</td><td>48</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보10(10) / 창고10(10) / 에너지2종(10)</td><td>39</td><td class="num">9</td></tr>
+                <tr><td>주작</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15) / 옵션 변경 스톤(10) / 수치변경 스톤(10)</td><td>50</td><td class="num">0</td></tr>
+                <tr><td>청룡</td><td>10</td><td>60</td><td>-20</td><td>50</td><td>아레나(5) / 통행증(5) / 백업칩(15) / 궁극 테이머 스킬(20)</td><td>45</td><td class="num">5</td></tr>
+                <tr><td>백호</td><td>5</td><td>60</td><td>-20</td><td>45</td><td>궁강디(20) / 명찰 강화 백업칩(5) / 메모리캡슐or메모리큐브[2개](20)</td><td>45</td><td class="num">0</td></tr>
+                <tr><td>17주년코인</td><td>5</td><td>—</td><td>20</td><td>25</td><td>—</td><td>—</td><td>25</td></tr>
+            </tbody>
+        </table>
+
+        <h3>5주차 (11/10 ~ 11/16)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>9</td><td>40</td><td>-20</td><td>29</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보or창고[10개](10)</td><td>19</td><td class="num">10</td></tr>
+                <tr><td>주작</td><td>0</td><td>40</td><td>-20</td><td>20</td><td>구매 안함</td><td>0</td><td class="num">20</td></tr>
+                <tr><td>청룡</td><td>5</td><td>40</td><td>-20</td><td>25</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">15</td></tr>
+                <tr><td>백호</td><td>0</td><td>40</td><td>-20</td><td>20</td><td>궁강디(20)</td><td>20</td><td class="num">0</td></tr>
+                <tr><td>17주년코인</td><td>25</td><td>—</td><td>20</td><td>45</td><td>—</td><td>—</td><td>45</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6주차 (11/17 ~ 11/23)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>10</td><td>40</td><td>-15</td><td>35</td><td>속성버프(3) / 정점버프(3) / 슈증(3) / 디보or창고[10개](10) / 5단 교환권(15)</td><td>34</td><td class="num">1</td></tr>
+                <tr><td>주작</td><td>20</td><td>40</td><td>-15</td><td>45</td><td>옵션 변경 재봉틀(15) / 수치 변경 재봉틀(15)</td><td>30</td><td class="num">15</td></tr>
+                <tr><td>청룡</td><td>15</td><td>40</td><td>-15</td><td>40</td><td>아레나(5) / 통행증(5) / 백업칩(15)</td><td>25</td><td class="num">15</td></tr>
+                <tr><td>백호</td><td>0</td><td>40</td><td>-15</td><td>25</td><td>궁강디(20)</td><td>20</td><td class="num">5</td></tr>
+                <tr><td>17주년코인</td><td>45</td><td>—</td><td>15</td><td>60</td><td>—</td><td>—</td><td>60</td></tr>
+            </tbody>
+        </table>
+
+        <h3>7주차 (11/24 ~ 11/30)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>1</td><td>40</td><td>0</td><td>41</td><td>구매 안함</td><td>0</td><td class="num">41</td></tr>
+                <tr><td>주작</td><td>15</td><td>40</td><td>0</td><td>55</td><td>구매 안함</td><td>0</td><td class="num">55</td></tr>
+                <tr><td>청룡</td><td>15</td><td>40</td><td>0</td><td>55</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">45</td></tr>
+                <tr><td>백호</td><td>5</td><td>40</td><td>0</td><td>45</td><td>구매 안함</td><td>0</td><td class="num">45</td></tr>
+                <tr><td>17주년코인</td><td>60</td><td>—</td><td>0</td><td>60</td><td>—</td><td>—</td><td>60</td></tr>
+            </tbody>
+        </table>
+
+        <h3>8주차 (12/1 ~ 12/7)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>41</td><td>40</td><td>0</td><td>81</td><td>속성버프(3) / 정점버프(3)</td><td>6</td><td class="num">75</td></tr>
+                <tr><td>주작</td><td>55</td><td>40</td><td>0</td><td>95</td><td>옵션 변경 재봉틀or수치변경 재봉틀(15)</span></td><td>15</td><td class="num">80</td></tr>
+                <tr><td>청룡</td><td>45</td><td>40</td><td>0</td><td>85</td><td>아레나(5) / 통행증(5)</td><td>10</td><td class="num">75</td></tr>
+                <tr><td>백호</td><td>45</td><td>40</td><td>0</td><td>85</td><td>메모리캡슐or메모리큐브[1개](10)</span></td><td>10</td><td class="num">75</td></tr>
+                <tr><td>17주년코인</td><td>60</td><td>20</td><td>0</td><td>80</td><td>슬픔과 결의의 상자(80)</td><td>80</td><td>0</td></tr>
+            </tbody>
+        </table>
+
+        <h3>마지막날 (12/8)</h3>
+        <table>
+            <thead><tr><th>구분</th><th>시작</th><th>수급</th><th>코인교환</th><th>잔액</th><th>구매내역</th><th>사용</th><th>최종잔고</th></tr></thead>
+            <tbody>
+                <tr><td>현무</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
+                <tr><td>주작</td><td>80</td><td>5</td><td>0</td><td>85</td><td>씰 구매</td><td>80</td><td class="num ok">5</td></tr>
+                <tr><td>청룡</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
+                <tr><td>백호</td><td>75</td><td>5</td><td>0</td><td>80</td><td>씰 구매</td><td>80</td><td class="num ok">0</td></tr>
+                <tr><td>17주년코인</td><td>35</td><td>—</td><td>0</td><td>35</td><td>모든 구매 완료</td><td>—</td><td>0</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // box1 클릭했을 때
+    document.querySelector('.box1').addEventListener('click', function() {
+        // 모든 탭 비활성화
+        document.querySelector('.box1').parentElement.classList.remove('active');
+        document.querySelector('.box2').parentElement.classList.remove('active');
+        
+        // 모든 내용 숨기기
+        document.getElementById('sc1').classList.remove('active');
+        document.getElementById('sc2').classList.remove('active');
+        
+        // box1과 sc1만 보이게 하기
+        document.querySelector('.box1').parentElement.classList.add('active');
+        document.getElementById('sc1').classList.add('active');
+    });
+
+    // box2 클릭했을 때
+    document.querySelector('.box2').addEventListener('click', function() {
+        // 모든 탭 비활성화
+        document.querySelector('.box1').parentElement.classList.remove('active');
+        document.querySelector('.box2').parentElement.classList.remove('active');
+        
+        // 모든 내용 숨기기
+        document.getElementById('sc1').classList.remove('active');
+        document.getElementById('sc2').classList.remove('active');
+        
+        // box2와 sc2만 보이게 하기
+        document.querySelector('.box2').parentElement.classList.add('active');
+        document.getElementById('sc2').classList.add('active');
+    });
+</script>
+</body>
+</html>
